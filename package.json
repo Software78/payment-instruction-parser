@@ -10,7 +10,7 @@
   },
   "scripts": {
     "test": "set USE_MOCK_MODEL=1 && mocha --recursive --require dotenv/config",
-    "prepare": "husky",
+    "prepare": "node -e \"try { if (!process.env.CI && process.env.NODE_ENV !== 'production') require('child_process').execSync('husky', { stdio: 'inherit' }); } catch(e) {}\"",
     "commitlint": "commitlint --edit",
     "sync-envs": "node sync-env-files"
   },
